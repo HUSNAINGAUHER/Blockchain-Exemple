@@ -5,9 +5,10 @@ import (
 "fmt"
 "strconv"
 )
-
+import a1 "github.com/HUSNAINGAUHER/assignment01IBC"
 
 var Port int
+var chainHead *a1.Block
 
 func Server(portNumber string,numNodes int) {
 	var ln net.Listener
@@ -35,6 +36,14 @@ func Server(portNumber string,numNodes int) {
 		i:=0
 		for i<numNodes{
 		i=i+1
+		
+		if i==0 {
+		chainHead = a1.InsertBlock("TO SANTOSHI 100 COINS Gensis Block", nil)
+		} else {
+			
+		chainHead = a1.InsertBlock("TO SANTOSHI 100 COINS", chainHead)
+		}
+		
 		conn, err := ln.Accept()
 		if err != nil {
 		log.Println(err)
