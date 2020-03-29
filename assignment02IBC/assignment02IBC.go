@@ -103,7 +103,7 @@ conn.Write([]byte(string(a)))
 
 recvdSlice := make([]byte, 11)
 conn.Read(recvdSlice)
-fmt.Println("dd"+string(recvdSlice))
+fmt.Println(string(recvdSlice))
 
 }
 	
